@@ -1,3 +1,3 @@
-## Py-DL
+# Py-DL
 
-# Simple deep learning library
+## A Deep learning library
