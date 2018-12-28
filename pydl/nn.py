@@ -2,7 +2,7 @@
 A Neural Network as a collection of layers.
 It behaves a lot like a layer itself.
 """
-from typing import Sequence
+from typing import Sequence, Iterator, Tuple
 
 from pydl.tensor import Tensor
 from pydl.layers import Layer
@@ -20,3 +20,9 @@ class NeuralNet:
         for layer in reversed(self.layers):
             grad = layer.backward(grad)
         return grad
+
+    def params_and_grads(self) -> Iterator[Tuple[Tensor, Tensor]]:
+        for layer in self.layers:
+            for name, param in layer.params.items():
+                grad = layer.grads[name]
+                yield param, grad
