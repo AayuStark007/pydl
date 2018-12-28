@@ -89,4 +89,4 @@ def tanh_prime(x: Tensor) -> Tensor:
 
 class Tanh(Activation):
     def __init__(self):
-        super().__init__(self, tanh, tanh_prime)
+        super().__init__(tanh, tanh_prime)
